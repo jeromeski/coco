@@ -7,10 +7,16 @@ const keys = require("../config/keys");
 // 2 args means you wanna load
 const User = mongoose.model("users");
 
+// Encoding an identifying info or token into the cookie
 passport.serializeUser((user, done) => {
   done(null, user.id);
 })
 
+passport .deserializeUser((id, done) => {
+  User.findById(id).then(user => {
+    done(null, user)
+  })
+})
 
 passport.use(
   new GoogleStrategy(
