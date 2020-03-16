@@ -7,6 +7,11 @@ const keys = require("../config/keys");
 // 2 args means you wanna load
 const User = mongoose.model("users");
 
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+})
+
+
 passport.use(
   new GoogleStrategy(
     {
