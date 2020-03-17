@@ -39,6 +39,7 @@
   "devDependencies": {
     "eslint-plugin-flowtype": "^4.6.0",
     "jquery": "^1.9.1",
+    "redux-devtools-extension": "^2.13.8",
     "typescript": "^3.8.3"
   }
 }
