@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import PropTypes from "prop-types";
 import { BrowserRouter, Route } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import Landing from "./Landing";
 import SurveyNew from "./SurveyNew";
 import Header from "./Header";
-import { fetchUser } from "../actions/index";
+import * as actions from '../actions'
 
 class App extends Component {
-  componentDidMount() {}
+  
+  componentDidMount() {
+    this.props.fetchUser()
+  }
 
   render() {
     return (
@@ -27,8 +29,5 @@ class App extends Component {
   }
 }
 
-App.propTypes = {
-  fetchUser: PropTypes.func.isRequired
-};
 
-export default connect(null, { fetchUser })(App);
+export default connect(null, actions )(App);
