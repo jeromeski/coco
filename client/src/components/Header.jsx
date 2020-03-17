@@ -1,22 +1,43 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Navbar, NavbarBrand, Nav, NavLink, Container } from "react-bootstrap";
 import NavbarToggle from "react-bootstrap/NavbarToggle";
 import NavbarCollapse from "react-bootstrap/NavbarCollapse";
-import '../index.css';
+import "../index.css";
 
 class Header extends Component {
 
+    renderContent() {
+      switch(this.props.auth) {
+        case null: 
+          return
+        
+        case false:
+          return (
+            <NavLink href='/auth/google'>Login with Google</NavLink>
+          )
+        
+        default:
+          return (
+            <NavLink href='/api/logout'>Logout</NavLink>
+          )
+      }
+    }
+
   render() {
+
     return (
       <div>
-        <Navbar collapseOnSelect expand='lg' variant='light' bg="light">
+        <Navbar collapseOnSelect expand="md" variant="light" bg="light">
           <Container>
-            <NavbarBrand className='logo-text' href="#home"><h2>coco</h2></NavbarBrand>
+            <NavbarBrand className="logo-text" href="#home">
+              <h2>coco</h2>
+            </NavbarBrand>
             <NavbarToggle aria-controls="responsive-navbar-nav" />
             <NavbarCollapse id="responsive-navbar-nav">
               <Nav className="ml-auto">
-                <NavLink eventKey={1}>Login to Google</NavLink>
-              </Nav>
+                {this.renderContent()}
+              </Nav>  
             </NavbarCollapse>
           </Container>
         </Navbar>
@@ -25,4 +46,8 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapStateToProps = ({ auth }) => ({
+  auth
+});
+
+export default connect(mapStateToProps)(Header);

@@ -1,7 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Baloo+Tamma+2:400,500,600,700&display=swap');
-
-.logo-text {
-  font-family: 'Baloo Tamma 2';
-  font-size: 2rem !important;
-  font-weight: 700;
+.auth-link {
+  display: inline-block !important;
+  font-weight: bold;
 }
