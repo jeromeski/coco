@@ -8,4 +8,4 @@ const SurveyNew = () => {
   );
 };
 
-export default SurveyNew;<h1>Dashboard</h1>
+export default SurveyNew;

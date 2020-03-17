@@ -8,4 +8,4 @@ const Landing = () => {
   );
 };
 
-export default Landing;<h1>Dashboard</h1>
+export default Landing;

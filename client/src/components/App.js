@@ -3,15 +3,17 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import Landing from "./Landing";
 import SurveyNew from "./SurveyNew";
+import Header from "./Header";
 
 const App = () => {
   return (
     <div>
       <BrowserRouter>
         <div>
-          <Route path='/' component={Landing} />
-          <Route path='/dashboard' component={Dashboard}/>
-          <Route path='/surveynew' component={SurveyNew}/>
+          <Header />
+          <Route exact path='/' component={Landing} />
+          <Route exact path='/surveys' component={Dashboard}/>
+          <Route path='/surveys/new' component={SurveyNew} />
         </div>
       </BrowserRouter>
     </div>

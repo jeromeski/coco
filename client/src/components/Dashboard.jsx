@@ -8,4 +8,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;<h1>
+export default Dashboard;
