@@ -10,13 +10,13 @@ const User = mongoose.model("users");
 // Encoding an identifying info or token into the cookie
 passport.serializeUser((user, done) => {
   done(null, user.id);
-})
+});
 
-passport .deserializeUser((id, done) => {
+passport.deserializeUser((id, done) => {
   User.findById(id).then(user => {
-    done(null, user)
-  })
-})
+    done(null, user);
+  });
+});
 
 passport.use(
   new GoogleStrategy(
@@ -25,18 +25,13 @@ passport.use(
       clientSecret: keys.googleClientSecret,
       callbackURL: "/auth/google/callback"
     },
-    (accessToken, refreshToken, profile, done) => {
-      User.findOne({ googleId: profile.id }).then(existingUser => {
-        if (existingUser) {
-          // We already have a record of this user
-          done(null, existingUser);
-        } else {
-          // Get access to the mongo model here
-          new User({ googleId: profile.id })
-            .save()
-            .then(user => done(null, user));
-        }
-      });
+    async (accessToken, refreshToken, profile, done) => {
+      const existingUser = await User.findOne({ googleId: profile.id });
+      if (existingUser) {
+        return done(null, existingUser);
+      }
+      const user = await new User({ googleId: profile.id }).save();
+      done(null, user);
     }
   )
 );
