@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Navbar, NavbarBrand, Nav, NavLink, Container } from "react-bootstrap";
 import NavbarToggle from "react-bootstrap/NavbarToggle";
 import NavbarCollapse from "react-bootstrap/NavbarCollapse";
+import Payments from './Payments';
 import "../index.css";
 
 class Header extends Component {
@@ -18,14 +19,16 @@ class Header extends Component {
           )
         
         default:
-          return (
-            <NavLink href='/api/logout'>Logout</NavLink>
-          )
+          return [
+            <NavLink key='1'>
+              <Payments />
+            </NavLink>,
+            <NavLink key='2' href='/api/logout'>Logout</NavLink>
+          ]
       }
     }
 
   render() {
-
     return (
       <div>
         <Navbar collapseOnSelect expand="md" variant="light" bg="light">
