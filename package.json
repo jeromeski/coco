@@ -30,7 +30,8 @@
     "mongoose": "^5.9.4",
     "nodemon": "^2.0.2",
     "passport": "^0.4.1",
-    "passport-google-oauth20": "^2.0.0"
+    "passport-google-oauth20": "^2.0.0",
+    "react-stripe-checkout": "^2.6.3"
   },
   "devDependencies": {}
 }
