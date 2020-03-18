@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Navbar, NavbarBrand, Nav, NavLink, Container } from "react-bootstrap";
+import { Navbar, NavbarBrand, Nav, NavLink, Container, Button, Badge } from "react-bootstrap";
 import NavbarToggle from "react-bootstrap/NavbarToggle";
 import NavbarCollapse from "react-bootstrap/NavbarCollapse";
 import Payments from './Payments';
@@ -22,6 +22,9 @@ class Header extends Component {
           return [
             <NavLink key='1'>
               <Payments />
+            </NavLink>,
+            <NavLink key='3'>
+              <Button disabled size='sm'>Credits{" "}<Badge variant="light" pill>{this.props.auth.credits}</Badge></Button>
             </NavLink>,
             <NavLink key='2' href='/api/logout'>Logout</NavLink>
           ]
