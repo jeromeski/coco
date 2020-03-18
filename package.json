@@ -35,5 +35,7 @@
     "react-stripe-checkout": "^2.6.3",
     "stripe": "^8.32.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "redux-devtools-extension": "^2.13.8"
+  }
 }
