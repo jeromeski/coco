@@ -6,5 +6,6 @@ module.exports = {
     "mongodb+srv://jerome:password123!@coco-v6fob.mongodb.net/test?retryWrites=true&w=majority",
   cookieKey: "BlIsoECYe0",
   stripePublishableKey: "pk_test_FnkP2fySGWWrxNnRDCpqIhTj00811hE2Kr",
-  stripeSecretKey: "sk_test_tTSDqSSOK8I9hLxIMYxNtloF003WXMve9t"
+  stripeSecretKey: "sk_test_tTSDqSSOK8I9hLxIMYxNtloF003WXMve9t",
+  sendGridKey: "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"
 };
